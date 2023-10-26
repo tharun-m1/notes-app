@@ -8,9 +8,9 @@
   src: url("../../assets/Roboto/Roboto-Medium.ttf");
 }
 .modalContainer {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
-  /* border: 2px solid red; */
+  border: 2px solid yellow;
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 1;

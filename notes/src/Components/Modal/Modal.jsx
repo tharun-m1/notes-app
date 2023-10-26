@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import styles from "./modal.module.css";
-function Modal() {
+function Modal(props) {
   // const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState("");
+  const [color, setColor] = useState("");
+  // const [valid, setValid] = useState(true);
+  // color
   const handleColor = (e) => {
-    console.log(e.target.value);
+    setColor(e.target.value);
   };
-  // const handleModal = () => {
-  //   setShowModal(true);
-  // };
-  // window.onclick = function (e) {
-  //   if (e.target.className === "modal_modalContainer__jmnz0") {
-  //     setShowModal(false);
-  //   }
-  // };
+  // name
+  const saveName = (e) => {
+    setName(e.target.value);
+  };
+  //create group
+  const createGroup = () => {
+    if (name === "" || color === "") {
+      alert("select name && color");
+      return;
+    }
+    props.handleNewGroups({ Name: name, Color: color });
+    setName("");
+    setColor("");
+    props.closeModal();
+  };
   return (
     <>
       <div
@@ -24,6 +35,7 @@ function Modal() {
           <div className={styles.name}>
             <span>Group Name</span>
             <input
+              onChange={saveName}
               placeholder="Enter your group name...."
               type="text"
               name="grpName"
@@ -65,7 +77,7 @@ function Modal() {
             </div>
           </div>
           <div className={styles.createContainer}>
-            <button>Create</button>
+            <button onClick={createGroup}>Create</button>
           </div>
         </div>
       </div>
