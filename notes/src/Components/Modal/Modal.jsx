@@ -4,6 +4,7 @@ function Modal(props) {
   // const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
+
   // const [valid, setValid] = useState(true);
   // color
   const handleColor = (e) => {
@@ -16,12 +17,21 @@ function Modal(props) {
   //create group
   const createGroup = () => {
     if (name === "" || color === "") {
-      alert("select name && color");
+      alert("Select Name && Color");
       return;
     }
-    props.handleNewGroups({ Name: name, Color: color });
+    props.handleNewGroups({
+      id: props.id,
+      Name: name,
+      Color: color,
+      Chat: [],
+      isActive: false,
+    });
+    // props.updateId();
     setName("");
     setColor("");
+    props.updateGid();
+    // setId((prev) => prev + 1);
     props.closeModal();
   };
   return (
