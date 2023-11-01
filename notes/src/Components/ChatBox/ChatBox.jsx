@@ -55,7 +55,7 @@ export default function ChatBox(props) {
     setgroups(grps);
   };
   const handleKeyDown = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       e.preventDefault();
       sendMessage();
       return;
@@ -66,12 +66,13 @@ export default function ChatBox(props) {
     <>
       <div className={styles.container}>
         <div className={styles.nameLabel}>
-          {width < 600 ? (
+          {width <= 600 ? (
             <img
               onClick={closeChat}
               style={{ marginTop: "5%", marginLeft: "5.7%" }}
               width={"20px"}
               height={"20px"}
+              alt="backbutton"
               src={back}
             />
           ) : (
@@ -95,18 +96,17 @@ export default function ChatBox(props) {
             name="editor"
             ref={input}
             onChange={handleChange}
-            rows={10}
             placeholder="Enter your text here..........."
           ></textarea>
           <span className={styles.arrow}>
             <img
               onClick={sendMessage}
               style={{
-                width: "3vw",
+                width: "3.5vw",
                 height: "fit-content",
                 zIndex: "1",
                 position: "relative",
-                left: "-5%",
+                left: "-5.5%",
                 bottom: "5%",
                 cursor: "pointer",
               }}

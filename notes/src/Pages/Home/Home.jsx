@@ -43,7 +43,7 @@ function Home() {
   // show chat
   const showChat = (obj) => {
     setDef(false);
-    // console.log(obj.Name);
+
     const temp = [...newGroups];
     temp.forEach((el) => {
       if (el.id !== obj.id) {
@@ -67,7 +67,7 @@ function Home() {
     }
   };
   const width = window.innerWidth;
-  if (width > 600) {
+  if (width >= 601) {
     return (
       <>
         <div>
@@ -88,15 +88,9 @@ function Home() {
             <div className={styles.banner}>
               <div className={styles.logo}>Pocket Notes</div>
               <div className={styles.createGroupbtn}>
-                <button onClick={handleModal}>
-                  <span
-                    style={{
-                      fontSize: "1.3vw",
-                    }}
-                  >
-                    +
-                  </span>{" "}
-                  &nbsp; Create Notes group
+                <button className={styles.btn} onClick={handleModal}>
+                  <div className={styles.add}>+</div>{" "}
+                  <div className={styles.btnName}>Create Notes group</div>
                 </button>
               </div>
             </div>
@@ -121,45 +115,14 @@ function Home() {
                 <div className={styles.imgContainer}>
                   <img src={Image} alt="notesimage" />
                 </div>
-                <div
-                  style={{
-                    position: "relative",
-                    top: "150px",
-                    left: "400px",
-                    // top: "21%",
-                    // left: "10%",
-                    fontFamily: "Roboto",
-                    fontSize: "2vw",
-                    // border: "1px solid red",
-                    width: "fit-content",
-                  }}
-                >
-                  Pocket Notes
-                </div>
-                <div
-                  style={{
-                    position: "relative",
-                    top: "170px",
-                    left: "300px",
-                    fontFamily: "Roboto",
-                    fontSize: "1vw",
-                    width: "fit-content",
-                  }}
-                >
+                <div className={styles.chatLogo}>Pocket Notes</div>
+                <div className={styles.chatDesc}>
                   Send and receive messages without keeping your phone online.
                   <br /> Use Pocket Notes on up to 4 linked devices and 1 mobile
                   phone
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    top: "280px",
-                    left: "400px",
-                    width: "fit-content",
-                  }}
-                >
-                  <div>
+                <div className={styles.security}>
+                  <div className={styles.lock}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="15 "
@@ -173,13 +136,7 @@ function Home() {
                       />
                     </svg>
                   </div>
-                  <div
-                    style={{
-                      fontFamily: "Roboto",
-                      fontSize: "1vw",
-                      marginLeft: "8px",
-                    }}
-                  >
+                  <div className={styles.securityType}>
                     end-to-end encrypted
                   </div>
                 </div>
@@ -252,21 +209,26 @@ function Home() {
           ) : (
             ""
           )}
-          {def === false
-            ? newGroups
-                .filter((obj) => obj.isActive)
-                .map((item, i) => (
-                  <ChatBox
-                    updateDef={updateDef}
-                    color={item.Color}
-                    updategrps={updategrps}
-                    newGroups={newGroups}
-                    key={i}
-                    id={item.id}
-                    name={item.Name}
-                  />
-                ))
-            : ""}
+          <div
+            style={{ height: "100vh" }}
+            className={styles.mobileChatContainer}
+          >
+            {def === false
+              ? newGroups
+                  .filter((obj) => obj.isActive)
+                  .map((item, i) => (
+                    <ChatBox
+                      updateDef={updateDef}
+                      color={item.Color}
+                      updategrps={updategrps}
+                      newGroups={newGroups}
+                      key={i}
+                      id={item.id}
+                      name={item.Name}
+                    />
+                  ))
+              : ""}
+          </div>
         </div>
       </>
     );

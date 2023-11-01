@@ -1,35 +1,41 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 @font-face {
   font-family: Roboto;
   src: url("../../assets/Roboto/Roboto-Medium.ttf");
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 601px) {
   .container {
     width: 100%;
     height: 100vh;
-    /* background-color: yellow; */
+
     display: flex;
+    overflow: hidden;
   }
   .grpNameContainer {
-    flex: 30%;
     background-color: white;
-    /* border: 1px solid green; */
+    width: 30%;
+
+    position: sticky;
+    top: 0px;
   }
   .chatContainer {
-    flex: 70%;
     background-color: #f7ecdc;
-    width: 100%;
-    /* border: 2px solid red; */
+
     height: 100%;
+    width: 70%;
   }
   .banner {
-    /* border: 1px solid red; */
-    height: 20%;
+    height: 15vw;
   }
   .logo {
     color: #000;
-    margin-top: 2.3%;
-    margin-left: 3%;
+    margin-top: 20px;
+    margin-left: 4%;
     font-family: Roboto;
     font-size: 2vw;
     font-style: normal;
@@ -38,18 +44,20 @@
     letter-spacing: 0.63px;
   }
   .createGroupbtn {
-    /* border: 1px solid blue; */
-
-    width: 50%;
-    height: 25%;
+    width: 85%;
+    height: 28%;
     margin-left: 6%;
     margin-top: 10%;
+  }
+  .createGroupbtn span {
+    font-family: Roboto;
+    font-size: 5vw;
   }
   .createGroupbtn button {
     cursor: pointer;
     color: white;
     font-family: Roboto;
-    font-size: 1.1vw;
+    font-size: 2vw;
     border-radius: 50px;
     height: 100%;
     width: 100%;
@@ -57,40 +65,73 @@
   }
   .groups {
     height: 78%;
-    /* border: 1px solid red; */
+
     overflow-y: scroll;
+    padding-bottom: 20px;
   }
   .groups::-webkit-scrollbar {
     display: none;
   }
   .imgContainer {
-    /* border: 1px solid red; */
+    padding-left: 10%;
+    margin-top: 20%;
+  }
+  .imgContainer img {
+    width: 95%;
+  }
+  .btn {
+    display: flex;
+    justify-content: space-around;
+  }
+  .add {
+    margin-top: 1%;
+    font-size: 3vw;
+  }
+  .btnName {
+    margin-top: 3%;
+    font-size: 2vw;
+  }
+  .chatLogo {
     width: fit-content;
+    height: fit-content;
+    margin: auto;
+    font-size: 4vw;
+    font-family: Roboto;
+  }
+  .chatDesc {
+    width: fit-content;
+    margin: auto;
+    margin-top: 14px;
+    font-family: Roboto;
+    font-size: 1.8vw;
+  }
+  .security {
+    display: flex;
+
+    width: fit-content;
+    margin: auto;
     position: relative;
     top: 150px;
-    left: 200px;
   }
 }
+/* max-width: 600px */
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     background-color: white;
-    /* border: 12px solid red; */
   }
   .grpNameContainer {
-    height: 20%;
-    /* border: 2px solid black; */
     position: sticky;
     top: 0;
   }
   .banner {
-    /* border: 1px solid red; */
     height: 100%;
   }
   .logo {
     color: #000;
-    /* margin-top: 8%; */
+
     padding-top: 8%;
     padding-left: 7%;
     font-family: Roboto;
@@ -101,10 +142,9 @@
     letter-spacing: 0.63px;
   }
   .createGroupbtn {
-    /* border: 1px solid blue; */
-
     width: 80%;
-    height: 30%;
+    height: 10vw;
+
     margin-left: 6%;
     margin-top: 6%;
   }
@@ -120,10 +160,114 @@
   }
   .groups {
     height: 90vh;
-    /* border: 1px solid red; */
+
     overflow-y: scroll;
+    padding-bottom: 80px;
   }
   .groups::-webkit-scrollbar {
     display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    overflow: hidden;
+  }
+  .grpNameContainer {
+    background-color: white;
+    width: 30%;
+
+    position: sticky;
+    top: 0px;
+  }
+  .chatContainer {
+    background-color: #f7ecdc;
+
+    height: 100%;
+    width: 70%;
+  }
+  .banner {
+    height: 12vw;
+  }
+  .logo {
+    color: #000;
+    margin-top: 20px;
+    margin-left: 4%;
+    font-family: Roboto;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.63px;
+  }
+  .createGroupbtn {
+    width: 75%;
+    height: 30%;
+    margin-left: 6%;
+    margin-top: 10%;
+  }
+
+  .createGroupbtn button {
+    cursor: pointer;
+    color: white;
+    font-family: Roboto;
+
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+  }
+  .groups {
+    overflow-y: scroll;
+    padding-bottom: 50px;
+  }
+  .groups::-webkit-scrollbar {
+    display: none;
+  }
+  .imgContainer {
+    padding-left: 20%;
+    margin-top: 6vw;
+  }
+  .imgContainer img {
+    width: 40vw;
+  }
+  .btn {
+    display: flex;
+  }
+  .add {
+    flex: 20%;
+    margin-top: 0.1%;
+    font-size: 3vw;
+  }
+  .btnName {
+    margin-top: 2.5%;
+    font-size: 1.7vw;
+
+    flex: 80%;
+  }
+  .chatLogo {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    font-size: 2.5vw;
+    font-family: Roboto;
+  }
+  .chatDesc {
+    width: fit-content;
+    margin: auto;
+    margin-top: 14px;
+    font-family: Roboto;
+    font-size: 1vw;
+  }
+  .security {
+    display: flex;
+
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: 100px;
   }
 }

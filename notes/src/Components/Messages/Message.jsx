@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./message.module.css";
 function Message(props) {
   const msg = props.chat.msg;
-  // console.log("msg executed");
-  // console.log(msg);
+
   return (
     <>
       <div className={styles.container}>

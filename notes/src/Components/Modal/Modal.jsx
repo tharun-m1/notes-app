@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import styles from "./modal.module.css";
 function Modal(props) {
-  // const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
+  const [clickedBtn, setClickedBtn] = useState(null);
 
-  // const [valid, setValid] = useState(true);
   // color
-  const handleColor = (e) => {
+  const handleColor = (e, buttonId) => {
     setColor(e.target.value);
+    setClickedBtn(buttonId);
+  };
+  // to add border when clicked
+  const getButtonStyle = (buttonId) => {
+    if (clickedBtn === buttonId) {
+      return true;
+    }
+    return false;
   };
   // name
   const saveName = (e) => {
@@ -27,19 +34,16 @@ function Modal(props) {
       Chat: [],
       isActive: false,
     });
-    // props.updateId();
+
     setName("");
     setColor("");
     props.updateGid();
-    // setId((prev) => prev + 1);
+
     props.closeModal();
   };
   return (
     <>
-      <div
-        // style={{ display: showModal ? "block" : "none" }}
-        className={styles.modalContainer}
-      >
+      <div className={styles.modalContainer}>
         <div className={styles.modal}>
           <div className={styles.caption}>Create New Notes group</div>
           <div className={styles.name}>
@@ -55,34 +59,52 @@ function Modal(props) {
             <span>Choose Colour</span>
             <div>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 1)}
                 value={"#B38BFA"}
-                style={{ backgroundColor: "#B38BFA" }}
+                style={{
+                  backgroundColor: "#B38BFA",
+                  border: getButtonStyle(1) ? "2px solid black" : "none",
+                }}
               ></button>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 2)}
                 value={"#FF79F2"}
-                style={{ backgroundColor: "#FF79F2" }}
+                style={{
+                  backgroundColor: "#FF79F2",
+                  border: getButtonStyle(2) ? "2px solid black" : "none",
+                }}
               ></button>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 3)}
                 value={"#43E6FC"}
-                style={{ backgroundColor: "#43E6FC" }}
+                style={{
+                  backgroundColor: "#43E6FC",
+                  border: getButtonStyle(3) ? "2px solid black" : "none",
+                }}
               ></button>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 4)}
                 value={"#F19576"}
-                style={{ backgroundColor: "#F19576" }}
+                style={{
+                  backgroundColor: "#F19576",
+                  border: getButtonStyle(4) ? "2px solid black" : "none",
+                }}
               ></button>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 5)}
                 value={"#0047FF"}
-                style={{ backgroundColor: "#0047FF" }}
+                style={{
+                  backgroundColor: "#0047FF",
+                  border: getButtonStyle(5) ? "2px solid black" : "none",
+                }}
               ></button>
               <button
-                onClick={handleColor}
+                onClick={(e) => handleColor(e, 6)}
                 value={"#6691FF"}
-                style={{ backgroundColor: "#6691FF" }}
+                style={{
+                  backgroundColor: "#6691FF",
+                  border: getButtonStyle(6) ? "2px solid black" : "none",
+                }}
               ></button>
             </div>
           </div>
